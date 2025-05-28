@@ -1,1 +1,0 @@
-Im da real sigma
