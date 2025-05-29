@@ -27,5 +27,12 @@ for i in range(10):
     time.sleep(0.5)
     
 print("\n" + Fore.LIGHTGREEN_EX + "Username successful" + Style.RESET_ALL)
+time.sleep(2)
+print("To verify who you are enter you password")
+
+password = input ("Enter your password for:")
+if password == 'ABC123':
+    print(Fore.LIGHTGREEN_EX + "credentials correct, entering system!" + Style.RESET_ALL)
+
 if response == 'up':
      create_user = input ("Greetings new customer. Please enter your desired username!")
