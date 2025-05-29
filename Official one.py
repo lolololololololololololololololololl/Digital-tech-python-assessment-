@@ -33,6 +33,7 @@ print("To verify who you are enter you password")
 password = input ("Enter your password for:")
 if password == 'ABC123':
     print(Fore.LIGHTGREEN_EX + "credentials correct, entering system!" + Style.RESET_ALL)
-
+else:
+    print(Fore.RED + "credentials incorrect, logging out!" + Style.RESET_ALL)
 if response == 'up':
      create_user = input ("Greetings new customer. Please enter your desired username!")
