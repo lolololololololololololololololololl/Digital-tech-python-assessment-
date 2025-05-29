@@ -1,18 +1,27 @@
-print ("welcome to the homework planner!")
+import time
+import sys
+import os
+from colorama import Fore, Style
+
+print(Fore.LIGHTYELLOW_EX + "welcome to the homework planner!" + Style.RESET_ALL)
 def ask_yes_no(prompt):
     while True:
         response = input(prompt).strip().lower()
-        if response in ['y', 'n']:
+        if response in ['in', 'up']:
             return response
-        print("Invalid input. Please enter 'y' or 'n'.")
+        print("Invalid input. Please enter 'in' or 'up'.")
 
-response = ask_yes_no("Sign in or Sign up? (y/n): ")
-if response == 'y':
+response = ask_yes_no("Sign in or Sign up? (in/up): ")
+if response == 'in':
 
-username = input ("Enter your name :")
-print ("Hello" ,username,)
+    username = input ("Enter your username or email:")
+print ("Hello",username,"!")
 
-
-
-while True:
-    print ("/n1. Add 
+for i in range(10):
+    sys.stdout.write("\r" + " " * 30)
+    sys.stdout.flush()
+    time.sleep(0.5)
+    
+    sys.stdout.write("\rloading please wait" + "." * (i % 4))
+    sys.stdout.flush()
+    time.sleep(0.5)
