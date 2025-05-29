@@ -17,7 +17,6 @@ if response == 'in':
     username = input("Enter your username or email: ")
     print("Hello", username, "!")
     
-    # Simulate loading
     for i in range(10):
         sys.stdout.write("\r" + " " * 30)
         sys.stdout.flush()
@@ -32,14 +31,10 @@ if response == 'in':
     password = input("Enter your password: ")
     if password == 'ABC123':
         print(Fore.LIGHTGREEN_EX + "Credentials correct, entering system!" + Style.RESET_ALL)
-        # Proceed to main program here.
     else:
         print(Fore.RED + "Credentials incorrect, logging out!" + Style.RESET_ALL)
 
 elif response == 'up':
     username = input("Greetings new customer. Please enter your desired username: ")
     password = input("Please enter your desired password: ")
-    # Here you would typically save the new username and password to a file or database,
-    # but for demonstration, we'll just confirm creation.
     print(Fore.LIGHTGREEN_EX + f"Account created for {username}! You can now sign in." + Style.RESET_ALL)
-    # Optionally, you could loop back to the sign-in prompt, or exit.
