@@ -1,12 +1,16 @@
 import time
 import sys
 import os
+import random
 from colorama import Fore, Style
 #Explanation to colorama ig?
 #print(Fore.RED + "This text is red!")
 #print(Back.YELLOW + "This text has a yellow background!")
 #print(Style.BRIGHT + "This text is bright!")
 #print(Style.RESET_ALL + "Back to normal.")
+
+#Explanation of time
+#time.sleep(1) is 1 second of wait period
 
 print(Fore.LIGHTYELLOW_EX + "welcome to the homework planner!" + Style.RESET_ALL)
 
@@ -18,7 +22,7 @@ def ask_yes_no(prompt):
     while True:
         #display prompt strip is remove extra spaces. It only accepts lowercase.
         response = input(prompt).strip().lower()
-        #decides if it is in or up inputed then it will work otherwise it prints on line 24.
+        #decides if it is in or up inputed then it will work otherwise it prints on line 28.
         if response in ['in', 'up']:
             return response
         print("Invalid input. Please enter 'in' or 'up'.")
@@ -55,8 +59,76 @@ if response == 'in':
     password = input("Enter your password: ")
     if password == 'ABC123':
         print(Fore.LIGHTGREEN_EX + "Credentials correct, entering system!" + Style.RESET_ALL)
+        
+        while True:
+            planner_choice = input("\nWould you like to create a new planner? (yes/no): ").strip().lower()
+            if planner_choice == "yes":
+                print(Fore.LIGHTCYAN_EX + "Creating new planner..." + Style.RESET_ALL)
+                
+                while True:
+                    time.sleep(3)
+                    task_name = input("\nEnter the name of the homework task: ")
+                    task_time = input("What time would you like to do the homework? (e.g., 7:00 PM): ")
+                    due_date = input("When is it due? (e.g., June 10): ")
+                    
+                    confirm = input(Fore.LIGHTGREEN_EX + f"\nConfirm selections? (yes/no)\nTask: {task_name}\nTime: {task_time}\nDue: {due_date}\n" + Style.RESET_ALL).strip().lower()
+                
+                    if confirm == "yes":
+                        print(Fore.LIGHTBLUE_EX + "Task successfully added to your planner!" + Style.RESET_ALL)
+                        
+                        #This is the capcha code thing to make sure user is not a bot.
+                        while True:
+                            #This means that when we imported random it will come up with a random number for 1 to 10.
+                            num1 = random.randint(1, 10)
+                            num2 = random.randint(1, 10)
+                            #Turns out it can actually do math.
+                            correct_answer = num1 + num2
+                            
+                            captcha = input(Fore.LIGHTYELLOW_EX + f"Solve this CAPTCHA: {num1} + {num2} = " + Style.RESET_ALL)
+                            
+                            #isdigit prevents letters or symbols from ending up in it. After that it does an int for integer.
+                            if captcha.isdigit() and int(captcha) == correct_answer:
+                                print(Fore.LIGHTBLUE_EX + "CAPTCHA correct! Task successfully added to your planner." + Style.RESET_ALL)
+                                break
+                            else:
+                                print(Fore.RED + "Incorrect CAPTCHA! Please try again." + Style.RESET_ALL)
+                            
+                        break
+                    
+                    elif confirm == "no":
+                        print(Fore.RED + "Re-enter task details..." + Style.RESET_ALL)
+                    else:
+                        print("Invalid input. Please enter 'yes' or 'no'.")
+                        
+                while True:
+                    add_more = input("Are you done or do you want to add more? (done/more): ").strip().lower()
+                    if add_more == "done":
+                        print(Fore.LIGHTGREEN_EX + "Homework planner setup complete!" + Style.RESET_ALL)
+                        break
+                    elif add_more == "more":
+                        print(Fore.LIGHTCYAN_EX + "Adding another task..." + Style.RESET_ALL)
+                        break
+                    else:
+                        print("Invalid input. Please enter 'done' or 'more'.")
+            
+            elif planner_choice == "no":
+                print(Fore.RED + "Exiting planner..." + Style.RESET_ALL)
+                break
+            else:
+                print("Invalid input. Please enter 'yes' or 'no'.")
+                    
     else:
         print(Fore.RED + "Credentials incorrect, logging out!" + Style.RESET_ALL)
+        time.sleep(5)
+        while True:
+            #ban screen
+            print(Fore.LIGHTGREEN_EX + "You have been banned off of this system!" + Style.RESET_ALL)
+            print(Fore.LIGHTMAGENTA_EX + "You have been banned off of this system!" + Style.RESET_ALL)
+            print(Fore.LIGHTBLUE_EX + "You have been banned off of this system!" + Style.RESET_ALL)
+            print(Fore.LIGHTYELLOW_EX + "You have been banned off of this system!" + Style.RESET_ALL)
+            print(Fore.LIGHTRED_EX + "You have been banned off of this system!" + Style.RESET_ALL)
+            print(Fore.CYAN + "You have been banned off of this system!" + Style.RESET_ALL)
+        
 #else works but incase you want to add a other condition it is there.
 elif response == 'up':
     create_user = input("Greetings new customer. Please enter your desired username: ")
