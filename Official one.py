@@ -12,6 +12,8 @@ from colorama import Fore, Style
 #Explanation of time
 #time.sleep(1) is 1 second of wait period
 
+#break exits loop
+
 print(Fore.LIGHTYELLOW_EX + "welcome to the homework planner!" + Style.RESET_ALL)
 
 #I got this chunka thing from online article. I hope yall understand code especially person presenting!
@@ -22,7 +24,7 @@ def ask_yes_no(prompt):
     while True:
         #display prompt strip is remove extra spaces. It only accepts lowercase.
         response = input(prompt).strip().lower()
-        #decides if it is in or up inputed then it will work otherwise it prints on line 28.
+        #decides if it is in or up inputed then it will work otherwise it prints on line 30.
         if response in ['in', 'up']:
             return response
         print("Invalid input. Please enter 'in' or 'up'.")
