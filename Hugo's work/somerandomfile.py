@@ -135,5 +135,5 @@ if response == 'in':
 elif response == 'up':
     create_user = input("Greetings new customer. Please enter your desired username: ")
     create_password = input("Please enter your desired password: ")
-    #{create_user} just repeats what is entered as the user.
+    #{create_user} just repeats what is entered as the user. f allows the ability to imbed variables.
     print(Fore.LIGHTGREEN_EX + f"Account created for {create_user}! You can now sign in." + Style.RESET_ALL)   
